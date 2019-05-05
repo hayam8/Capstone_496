@@ -1,0 +1,6 @@
+sys
+listener
+tkinter
+PIL
+time
+pynput
