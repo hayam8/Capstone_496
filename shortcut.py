@@ -9,18 +9,21 @@ __metaclass__ = type
 class Shortcut:
 
     def __init__(self, keys, description):
-        self.keys = keys #list of key values for shortcut
-        self.description = description #description of use
-        self.hotKey = self.createShortcut() 
+        self._keys = keys #list of key values for shortcut
+        self._description = description #description of use
+        self._hotKey = self.createShortcut()
+
+    def getKeysList(self):
+        return self._keys
 
     def getKeys(self):
-        return self.keys
+        return ' '.join(self._keys)
 
     def getDescription(self):
-        return self.description
+        return self._description
 
     def getHotKey(self):
-        return self.hotKey
+        return self._hotKey
 
     """
     This method is used when creating an instance of the Shortcut class. 
@@ -31,11 +34,12 @@ class Shortcut:
     """
     def createShortcut(self):
         shortcutValue = []
-        for i in range(len(self.keys)):
-            if i != (len(self.keys) - 1):
-                shortcutValue.append(self.keys[i] + '+')
+        for i in range(len(self._keys)):
+            if i != (len(self._keys) - 1):
+                shortcutValue.append(self._keys[i] + '+')
             else:
-                shortcutValue.append(self.keys[i])
+                shortcutValue.append(self._keys[i])
         return ''.join(shortcutValue)
 
-
+    def __str__(self):
+        return self.getHotKey()
