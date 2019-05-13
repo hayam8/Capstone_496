@@ -1,13 +1,19 @@
 from pynput import keyboard
-
+"""
+Listener object has a start and stop method that controls when the listener is active. It will append any key that is
+being held down to a list for held down keys and when the key is released the list is appended to an output file.
+Normal character keys are written as they appear and special keys are parsed to their string representation for smoother
+reading. 
+"""
 class Listener():
 
 	def __init__(self):
 		self.output = open('user_output.txt', 'w+')
-		#Dictionary with Key codes from keyboard library representing various buttons that may not correspond to letters
-		#Includes modifier keys and function keys
-		#Dictionary with Key code keys and parsed string values to convert key codes to readable values
-		#class pynput.keyboard.Key[source] (Key) : String (value)
+		"""Dictionary with Key codes from keyboard library representing various buttons that may not correspond to letters
+		Includes modifier keys and function keys
+		Dictionary with Key code keys and parsed string values to convert key codes to readable values
+		class pynput.keyboard.Key[source] (Key) : String (value)
+		"""
 		self.keyDic = {
 			keyboard.Key.alt: 'Alt',
 			keyboard.Key.alt_gr: 'Alt',
@@ -45,6 +51,8 @@ class Listener():
 			keyboard.Key.up : 'Up'
 		}
 
+		self.__pressed = []
+
 	"""
 	Writes to output file
 	"""
@@ -56,24 +64,28 @@ class Listener():
 	taken from keyDic and written to output file
 	"""
 	def on_press(self, key):
-			try:
-				self.writeToFile('alphanumeric key {0} pressed '.format(key.char))
-			except AttributeError:
-				self.writeToFile('special key {0} pressed '.format(self.keyDic.get(key)))
+		try:
+			# alphanumeric key
+			self.__pressed.append(key.char.upper())
+		except AttributeError:
+			# special key
+			self.__pressed.append(self.keyDic.get(key))
 
 	"""
 	When keyboard key is released the key is parsed to either the corresponding char value or String value of key 
 	taken from keyDic and written to output file
 	"""
 	def on_release(self, key):
-		#Stops listener
+		# Stops listener
 		if(key == keyboard.Key.esc):
 			return False
-		#looks to see if key is in keyDic in order to write the String representation of key
-		if(key in self.keyDic):
-			self.writeToFile('\n{0} released'.format(self.keyDic.get(key)))
-		else:
-			self.writeToFile('\n{0} released'.format(key.char))
+		#removes duplicate keys added from being pressed down from list
+		self.__pressed = list(dict.fromkeys(self.__pressed))
+		#write list of current pressed keys to file as string
+		self.writeToFile(' '.join(self.__pressed))
+		self.writeToFile('\n')
+		#unpopulate current pressed keys
+		self.__pressed = []
 
 	"""
 	Method to start the Listener
@@ -82,6 +94,9 @@ class Listener():
 		with keyboard.Listener(on_press = self.on_press, on_release = self.on_release) as listener:
 			listener.join()
 
+	def stop(self):
+		return False
 
-#listen = Listener()
-#listen.start()
+
+listen = Listener()
+listen.start()
