@@ -15,7 +15,8 @@ openNewWindow = Shortcut(['Ctrl', 'N'], 'Open a new window')
 closeTab = Shortcut(['Ctrl', 'W'], 'Close current tab')
 openPrivateWindow = Shortcut(['Ctrl', 'Shift', 'P'], 'Open a private browser window')
 moveCursorToURLBar = Shortcut(['Ctrl', 'E'], 'Move cursor to URL bar and highlight all text in it')
+pinLeft = Shortcut(['Win', 'Left'], 'Pins current window to left side of screen')
 
 
-
+print(selectAll)
 
