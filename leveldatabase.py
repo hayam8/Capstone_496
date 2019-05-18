@@ -26,12 +26,22 @@ level1Actions = [shortcutdatabase.openSearch, 'n', 'o', 't', 'e','p', 'a', 'd', 
 level1 = Level("Level 1", level1Description, level1Actions, 5)
 
 level2Description = "Pin this application to the left side of the screen"
-level2Shortcuts = [shortcutdatabase.pinLeft]
+level2Shortcuts = [shortcutdatabase.maximizeToLeft]
 level2 = Level("Level 2", level2Description, level2Shortcuts, 5)
 
 level3Description = "Maximize this window"
 level3Shortcuts = [shortcutdatabase.maximize]
 level3 = Level("Level 3", level3Description, level3Shortcuts, 5)
+
+task4Description = "Open a new text file"
+task4Shortcuts = [shortcutdatabase.openNewWindow]
+task4 = Level("Task 4", task4Description, task4Shortcuts, 5)
+
+task5Description = "Close the application"
+task5Shortcuts = [shortcutdatabase.closeWindow]
+task5 = Level("Task 5", task5Description, task5Shortcuts)
+
+LEVEL1 = [level1, level2, level3, task4, task5]
 
 level4Description = "Shrink this window"
 level4Shortcuts = [shortcutdatabase.minimize]
