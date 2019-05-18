@@ -3,6 +3,10 @@ from shortcut import Shortcut
 List of shortcut objects
 """
 
+generalShortcutsDict = {}
+windowsShortcutsDict = {}
+fileExplorerShortcuts = {}
+
 
 
 # Shortcuts Database in module
@@ -46,8 +50,9 @@ switchInputLanguage = Shortcut(['Win', 'Space'], 'Switch input language and keyb
 
 
 
-#File explorer shortcuts
+# File explorer shortcuts
 openNewWindow = Shortcut(['Ctrl', 'N'], 'Open a new window')
+closeWindow = Shortcut(['Alt', 'F4'], 'Close open window')
 closeTab = Shortcut(['Ctrl', 'W'], 'Close current tab')
 openPrivateWindow = Shortcut(['Ctrl', 'Shift', 'P'], 'Open a private browser window')
 moveCursorToURLBar = Shortcut(['Ctrl', 'E'], 'Move cursor to URL bar and highlight all text in it')
@@ -55,10 +60,10 @@ moveCursorToURLBar = Shortcut(['Ctrl', 'E'], 'Move cursor to URL bar and highlig
 
 
 
-#shortcut tests
-#selectAll.__description = "nothing"
+# shortcut tests
+# selectAll.__description = "nothing"
 
-#print(selectAll.getDescription())
-#print(selectAll.__description)
+# print(selectAll.getDescription())
+# print(selectAll.__description)
 
 
