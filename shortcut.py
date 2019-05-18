@@ -13,10 +13,10 @@ class Shortcut:
         self.__description = description #description of use
         self.__hotKey = self.createShortcut()
 
-    def getKeysList(self):
+    def getKeys(self):
         return self.__keys
 
-    def getKeys(self):
+    def getKeysString(self):
         return ' '.join(self.__keys)
 
     def getDescription(self):
