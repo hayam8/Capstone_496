@@ -29,12 +29,19 @@ class LevelRunnable:
 
     #Begin running level
     def runLevel(self):
+        #start level
         self.isLevelRunning = True
         startTime = time.time() #begin timer
 
-        listen2Me = Listener('user_output.txt', self.levelToRun.getValidShortcuts())
-        listen2Me.start()
+        #create listener
+        listen2Me = Listener('user_output.txt', self.levelToRun.getValidShortcutsList())
+        listen2Me.start() #start listening user input and stop when shortcuts are done
+        self.isLevelRunning = False
 
-
+        #end level and record time,  user input, and actions
         endTime = time.time() #end timer
         self.elapsedTime = endTime - startTime #record elapsed time
+
+        self.userInput = listen2Me.getCompletedShortcuts()
+        self.userActions = len(listen2Me.completedShortcuts) #listener needs to be changed to count all actions
+
