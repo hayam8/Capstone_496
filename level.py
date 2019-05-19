@@ -34,12 +34,7 @@ class Level:
         return self.instructions
 
     def getValidShortcuts(self):
-        shortcuts = []
-        for i in range(len(self.validShortcuts)):
-            shortcuts.append(str(self.validShortcuts[i]))
-            if(i != (len(self.validShortcuts) - 1)):
-                shortcuts.append("\n")
-        return ''.join(shortcuts)
+        return self.validShortcuts
 
     def getValidActions(self):
         actions = []
