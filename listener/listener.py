@@ -1,6 +1,5 @@
 from pynput import keyboard
 from transitions import Machine
-import shortcutdatabase
 import logging
 import shortcut
 from shortcut import Shortcut
@@ -102,14 +101,27 @@ class Listener():
 		if(key == keyboard.Key.esc): # Stops listener
 			return False
 
-		if(self.checkCompletedCurrentShortcut(self.__pressed, self.validShortcuts[self.currentShortcut].getKeys())):
-			self.__pressed = list(dict.fromkeys(self.__pressed))  # removes duplicate keys added from being pressed down from list
-			keys = str(' '.join(self.__pressed)) # convert list to string
+		try:
+			# check to see if the current list of held down keys match the keys required for the current shortcut
+			if (self.checkCompletedCurrentShortcut(self.__pressed, self.validShortcuts[self.currentShortcut].getKeys())):
+				self.__pressed = list(
+					dict.fromkeys(self.__pressed))  # removes duplicate keys added from being pressed down from list
+				keys = str(' '.join(self.__pressed))  # convert list to string
 
-			logging.info(keys)  # log the completed shortcut to file with timestamp
+				logging.info(keys)  # log the completed shortcut to file with timestamp
 
-			self.completedShortcuts.append(self.validShortcuts[self.currentShortcut])
-			self.currentShortcut += 1
+				self.completedShortcuts.append(self.validShortcuts[self.currentShortcut])
+				self.currentShortcut += 1
+		except AttributeError:
+			if(self.checkCompletedCurrentShortcut(self.__pressed, self.validShortcuts[self.currentShortcut])):
+				self.__pressed = list(
+					dict.fromkeys(self.__pressed))  # removes duplicate keys added from being pressed down from list
+				keys = str(' '.join(self.__pressed))  # convert list to string
+
+				logging.info(keys)  # log the completed shortcut to file with timestamp
+
+				self.completedShortcuts.append(self.validShortcuts[self.currentShortcut])
+				self.currentShortcut += 1
 
 		self.__pressed = []	# clear current pressed keys
 		if(self.checkCompleted()):
