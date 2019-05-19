@@ -1,0 +1,11 @@
+2019-05-18 20:19:11,469: Unhandled exception in listener callback
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64\lib\site-packages\pynput\_util\__init__.py", line 157, in inner
+    return f(self, *args, **kwargs)
+  File "C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64\lib\site-packages\pynput\keyboard\_win32.py", line 243, in _process
+    self.on_release(key)
+  File "C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64\lib\site-packages\pynput\_util\__init__.py", line 78, in inner
+    if f(*args) is False:
+  File "C:\Users\Jesus\Source\Repos\Capstone_496\listener\listener.py", line 105, in on_release
+    if(self.checkCompletedCurrentShortcut(self.__pressed, self.validShortcuts[self.currentShortcut].getKeys())):
+AttributeError: 'str' object has no attribute 'getKeys'

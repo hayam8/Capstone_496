@@ -39,7 +39,7 @@ task4 = Level("Task 4", task4Description, task4Shortcuts, 5)
 
 task5Description = "Close the application"
 task5Shortcuts = [shortcutdatabase.closeWindow]
-task5 = Level("Task 5", task5Description, task5Shortcuts)
+task5 = Level("Task 5", task5Description, task5Shortcuts, 5)
 
 LEVEL1 = [level1, level2, level3, task4, task5]
 

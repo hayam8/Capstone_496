@@ -14,8 +14,8 @@ class Level:
         self.validShortcuts = []
         self.validActions = actions
         self.timeLimit = limit
-        self.numTargetActions = len(self.validShortcuts)
         self.setValidShortcuts(actions)
+        self.numTargetActions = len(self.validShortcuts)
     
     def setNumTargetActions(self, shortcuts):
         self.numTargetActions = len(shortcuts)
