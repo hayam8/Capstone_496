@@ -1,9 +1,11 @@
-import level, time
+from level import Level
+from listener.listener import Listener
+import time
 #Level Runnable
 class LevelRunnable:
 
     #Attributes
-    levelToRun = level
+    levelToRun = Level
     elapsedTime = 0
     userInput = []
     userActions = 0
@@ -17,7 +19,7 @@ class LevelRunnable:
     #returns
     def checkLevel(self):
         #check to see if selected level is missing any data
-        if (self.levelToRun.getName() == "" or self.levelToRun.getIntructions() == "" or self.levelToRun.GetValidShortcuts() == " " or
+        if (self.levelToRun.getName() == "" or self.levelToRun.getInstructions() == "" or self.levelToRun.getValidShortcuts() == " " or
             self.levelToRun.getNumTargetActions() == 0 or self.levelToRun.getTimeLimit() == 0):
 
             print("Error, selected level is missing data")
@@ -30,11 +32,9 @@ class LevelRunnable:
         self.isLevelRunning = True
         startTime = time.time() #begin timer
 
-        while self.isLevelRunning == True: #while level not complete
-            if (True == True): #this is where the UI listener will be implemented
-                self.userInput.append("ctrl+c") #placeholder for testing updating userInput
-                self.userActions += 1
-                self.isLevelRunning = False #stop level
+        listen2Me = Listener('user_output.txt', self.levelToRun.getValidShortcuts())
+        listen2Me.start()
+
 
         endTime = time.time() #end timer
         self.elapsedTime = endTime - startTime #record elapsed time

@@ -34,7 +34,9 @@ class Eval:
             self.score += 1
 
         #compare time to complete
-        if self.userTime <= self.levelToEval.getTimeLimit():
+        if self.levelToEval.getTimeLimit() - 1 < self.userTime <= self.levelToEval.getTimeLimit():
             self.score += 1
+        elif self.userTime <= self.levelToEval.getTimeLimit() - 2:
+            self.score += 2
 
-        return
+        return score
