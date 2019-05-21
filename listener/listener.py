@@ -1,6 +1,7 @@
 from pynput import keyboard
 from transitions import Machine
 import logging
+import shortcutdatabase
 import shortcut
 from shortcut import Shortcut
 
@@ -99,7 +100,7 @@ class Listener():
 	"""
 	def on_release(self, key):
 		if(key == keyboard.Key.esc): # Stops listener
-			return False
+			return self.stop()
 
 		try:
 			# check to see if the current list of held down keys match the keys required for the current shortcut
@@ -124,8 +125,8 @@ class Listener():
 				self.currentShortcut += 1
 
 		self.__pressed = []	# clear current pressed keys
-		if(self.checkCompleted()):
-			return False
+		if(self.checkCompleted()):#stops listening once shortcuts have been completed
+			return self.stop()
 
 	"""
 	Method that takes the list of current pressed keys as a list and compares it to the current pending shortcut task
@@ -140,7 +141,6 @@ class Listener():
 	"""
 	def updateTasks(self):
 		return
-
 
 	"""
 	Method to start the Listener
@@ -161,15 +161,6 @@ class Listener():
 	def getCompletedShortcuts(self):
 		return self.completedShortcuts
 
-	def buildFiniteStateMachine(self, validShortuts):
-		states = []
-		for i in validShortuts:
-			states.append(i)
-		#initialiation of finite state machine
-		machine = Machine(states=states, initial=states[0])
-		machine.add_ordered_transitions()
-		return machine
-
 	"""
 	Method to check if tasks have been completed by comparing the total number of valid shortcuts to the number
 	of shortcuts completed
@@ -187,4 +178,3 @@ listener tests
 """
 #listen = Listener('user_output.txt', [shortcutdatabase.openSearch, shortcutdatabase.maximizeToLeft])
 #listen.start()
-#print(listen.machine)
