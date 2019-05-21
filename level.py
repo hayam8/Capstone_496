@@ -33,8 +33,16 @@ class Level:
     def getInstructions(self):
         return self.instructions
 
-    def getValidShortcuts(self):
+    def getValidShortcutsList(self):
         return self.validShortcuts
+
+    def getValidShortcuts(self):
+        shortcuts = []
+        for i in range(len(self.validShortcuts)):
+            shortcuts.append(str(self.validShortcuts[i]))
+            if(i != (len(self.validShortcuts) - 1)):
+                shortcuts.append("\n")
+        return ''.join(shortcuts)
 
     def getValidActions(self):
         actions = []
@@ -54,7 +62,7 @@ class Level:
     #display level info
     def display(self):
         print(self.getName(), "\n" + self.getInstructions(),
-              "\nGoal Shortcuts: ", "\n" + self.getValidShortcuts(), "\nTarget Number of Actions: ", self.getNumTargetActions(),
+              "\nGoal Shortcuts: ", "\n", self.getValidShortcuts(), "\nTarget Number of Actions: ", self.getNumTargetActions(),
               "\nTime Limit: ", self.getTimeLimit(), "sec")
 
     

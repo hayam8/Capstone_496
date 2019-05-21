@@ -31,12 +31,12 @@ class Eval:
 
         #compare number of actions
         if self.numberOfUserActions <= self.levelToEval.getNumTargetActions():
-            self.score += 1
+            self.score += 0.5
 
         #compare time to complete
         if self.levelToEval.getTimeLimit() - 1 < self.userTime <= self.levelToEval.getTimeLimit():
-            self.score += 1
+            self.score += 0.5
         elif self.userTime <= self.levelToEval.getTimeLimit() - 2:
-            self.score += 2
+            self.score += 1.5
 
-        return score
+        return self.score
