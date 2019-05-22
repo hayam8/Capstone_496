@@ -1,5 +1,7 @@
-import tkinter as tk
-import leveldatabase as lb
+from tkinter import *
+from listener import Listener
+import shortcutdatabase
+'''import leveldatabase as lb
 import shortcutdatabase as sb
 import time
 from PIL import Image, ImageTk
@@ -13,6 +15,7 @@ minutes = 0
 
 LARGE_FONT= ("Verdana", 12)
 LevelVar = "Level 1"
+
 #Main frame class on which everything is drawn
 class GUI(tk.Tk):
 
@@ -150,7 +153,7 @@ class encycOpen(tk.Frame):
         text2.insert(tk.END, quote, 'color')
         quote = '\n'
         text2.insert(tk.END, quote, 'color')
-        quote = sb.pinLeft
+        quote = sb.maximizeToLeft
         text2.insert(tk.END, quote, 'color')
         text2.place(relx = .35, rely = .55)
         
@@ -302,4 +305,20 @@ class resultsTest(tk.Frame):
         
 
 app = GUI()
+app.mainloop()
+'''
+
+
+def printtest():
+    mytext = Label(app, text='button pressed by bitch')
+    mytext.pack()
+app = Tk()
+welcome = Label(app, text="Welcome to Short Keys. Follow these instructions to learn how to test your keyboard knowledge")
+welcome.pack()
+listen = Listener('user_output.txt', [shortcutdatabase.openSearch, shortcutdatabase.maximizeToLeft])
+
+startButton = Button(app, test="start listener", command=listen.start)
+startButton.pack()
+#button = Button(app, text="click me bitch", command=printtest)
+#button.pack()
 app.mainloop()

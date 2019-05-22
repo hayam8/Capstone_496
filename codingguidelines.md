@@ -47,7 +47,9 @@ What are your standards for exception handling & logging, is it all home grown o
 Commenting
 ----------
 •	Block comments should be added to each method and start with # and a single space
-•	Inline comments should be placed on a separate line above the line of code being commented on.
+
+•	Inline comments should be placed on the same line as the code the comment is for, unless it would provide better readability to be on its own line. In that case, the comment will be placed above the line of code being commented on.
+
 •	Documentation strings are written for all public modules, functions, classes, and methods. DocStrings should start with “““ and end with ””” on the line following the end of the comment.
     
    Example: 

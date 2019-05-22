@@ -36,10 +36,10 @@ class Shortcut:
         shortcutValue = []
         for i in range(len(self.__keys)):
             if i != (len(self.__keys) - 1):
-                shortcutValue.append(self.__keys[i] + '+')
+                shortcutValue.append(self.__keys[i] + ' + ')
             else:
                 shortcutValue.append(self.__keys[i])
         return ''.join(shortcutValue)
 
     def __str__(self):
-        return self.getHotKey()
+        return (self.__hotKey + ' = ' + self.__description)

@@ -21,6 +21,14 @@ level4Shortcuts = [shortcutdatabase.openSearch, shortcutdatabase.openNewWindow, 
 level4 = Level("Level 4", level4Description, level4Shortcuts, 5)
 """
 
+#building level1 tasks dictionary <<str>Task Description: <list> shortcuts/keys>
+level1tasks = {"Open the Notepad application": [shortcutdatabase.openSearch, 'n', 'o', 't', 'e','p', 'a', 'd', 'Enter'],
+               "Pin this application to the left side of the screen": [shortcutdatabase.maximizeToLeft],
+               "Maximize this window": [shortcutdatabase.maximize],
+               "Open a new text file": [shortcutdatabase.openNewWindow],
+               "Close the application": [shortcutdatabase.closeWindow]
+               }
+
 level1Description = "Open the Notepad application"
 level1Actions = [shortcutdatabase.openSearch, 'n', 'o', 't', 'e','p', 'a', 'd', 'Enter']
 level1 = Level("Level 1", level1Description, level1Actions, 5)
@@ -41,8 +49,6 @@ task5Description = "Close the application"
 task5Shortcuts = [shortcutdatabase.closeWindow]
 task5 = Level("Task 5", task5Description, task5Shortcuts, 5)
 
-LEVEL1 = [level1, level2, level3, task4, task5]
-
 level4Description = "Shrink this window"
 level4Shortcuts = [shortcutdatabase.minimize]
 level4 = Level("Level 4", level4Description, level4Shortcuts, 5)
@@ -55,6 +61,18 @@ level6Description = "Tab through all your open windows using CRTL-Alt-Tab"
 level6Shortcuts = [shortcutdatabase.switchBetweenAllTabs]
 level6  = Level("Level 6", level6Description, level6Shortcuts, 5)
 
+"""
+levelNTask1 =
+levelNTask2=
+levelNTask3 =
+levelNTask4 =
+levelNTask5 =
+
+levelNTasks = {
+
+
+}
+"""
 
 """
 level database tests

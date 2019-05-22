@@ -12,6 +12,7 @@ fileExplorerShortcuts = {}
 # Shortcuts Database in module
 
 # General shortcuts
+
 selectAll = Shortcut(['Ctrl', 'A'], 'Select all items in a document or window')
 copy = Shortcut(['Ctrl', 'C'], 'Copy the selected item')
 refreshWindow = Shortcut(['Ctrl', 'R'], 'Refresh the active window')
@@ -51,6 +52,7 @@ switchInputLanguage = Shortcut(['Win', 'Space'], 'Switch input language and keyb
 
 
 # File explorer shortcuts
+
 openNewWindow = Shortcut(['Ctrl', 'N'], 'Open a new window')
 closeWindow = Shortcut(['Alt', 'F4'], 'Close open window')
 closeTab = Shortcut(['Ctrl', 'W'], 'Close current tab')
@@ -58,7 +60,8 @@ openPrivateWindow = Shortcut(['Ctrl', 'Shift', 'P'], 'Open a private browser win
 moveCursorToURLBar = Shortcut(['Ctrl', 'E'], 'Move cursor to URL bar and highlight all text in it')
 
 
-
+#print(copy)
+#print(moveCursorToURLBar)
 
 # shortcut tests
 # selectAll.__description = "nothing"

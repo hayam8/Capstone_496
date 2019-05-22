@@ -4,6 +4,7 @@ from shortcut import Shortcut
 """
 The level class takes in a string name for variable, string description for what user should do, list of valid actions
 that can be taken by user, and a time limit for how long the level can last
+The level class takes in a dictionary with key
 """
 class Level:
 
