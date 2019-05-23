@@ -1,5 +1,6 @@
 #levelRunnable/listener tests
-import level, leveldatabase
+from level import Level
+import leveldatabase
 from levelrunnable import LevelRunnable
 from eval import Eval
 
@@ -20,12 +21,6 @@ print(runningLevel.checkLevel())
 runningLevel.runLevel()
 
 
-#eval tests
-eval1 = Eval(testLevel2, runningLevel.userInput, runningLevel.userActions, runningLevel.elapsedTime)
-eval1.evaluate()
-eval1.display()
-
-
 
 #2nd test-------------------------------------------------------------------------------------------------
 print("\n\nTest 2 Level info:")
@@ -41,11 +36,5 @@ print(runningLevel.checkLevel())
 
 #runLevel() test
 runningLevel.runLevel()
-
-
-#eval tests
-eval1 = Eval(testLevel3, runningLevel.userInput, runningLevel.userActions, runningLevel.elapsedTime)
-eval1.evaluate()
-eval1.display()
 
 

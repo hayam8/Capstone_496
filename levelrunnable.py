@@ -1,11 +1,13 @@
 from level import Level
 from listener.listener import Listener
+from eval import Eval
 import time
 #Level Runnable
 class LevelRunnable:
 
     #Attributes
     levelToRun = Level
+    eval1 = Eval
     elapsedTime = 0
     userInput = []
     userActions = 0
@@ -44,4 +46,8 @@ class LevelRunnable:
 
         self.userInput = listen2Me.getCompletedShortcuts()
         self.userActions = len(listen2Me.completedShortcuts) #listener needs to be changed to count all actions
+
+        #create eval object 
+        eval1 = Eval(self.levelToRun, self.userInput, self.userActions, self.elapsedTime)
+        eval1.evaluate() #run evaluation
 
