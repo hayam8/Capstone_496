@@ -1,0 +1,5 @@
+Brainscape has created a formula to figure out just how much time people lose while working on the computer without shortcuts. And it comes out to a shocking 64 hours or 8 days per year. This works out to 3.3 percent of your total productivity. Even if you learn just a single shortcut, you can save several cumulative hours each year.
+
+Here’s the example Brainscape provides. When you use a mouse to open a new tab in a browser, you move your hand from the keyboard to the mouse, move the cursor to the + button on the open tabs, click the button, and switch your hand back to the keyboard. With the keyboard shortcut, you just press the CTRL and t keys on your Windows PC and CMD and t keys for a Mac, and you are done.
+
+Brainscape came up with the total using this equation — 2 wasted seconds / min multiplied by 480 min / workday multiplied by 240 workdays / year equals the 8 lost days. 
